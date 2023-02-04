@@ -9,7 +9,8 @@ function sellStock(){
     console.log("stock sold")
 }
 
-function BuySellButton(){
+function BuySellButton(props){
+    const {data, setData} = props;
     return (
         <>
             <Button onClick={buyStock} size="lg">Buy</Button>{' '}

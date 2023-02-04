@@ -1,4 +1,5 @@
 import WebApp from "./components/WebApp"
+import update from "./components/displayGraph"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
 
