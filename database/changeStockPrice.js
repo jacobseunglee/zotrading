@@ -1,11 +1,12 @@
-function changeStockPrice(db)
+function handleChangeStockPrice(db)
 {
     return function(req, res)
     {
         stock = req.query.stock
-        amount = req.query.amount
+        amount = parseInt(req.query.amount)
+        console.log(amount)
         const users = db.collection("Users")
-        changeStock(db, stock, amount)
+        changeStock(db, stock, amount).then(x => res.send(x))
     }
     
 }
@@ -15,4 +16,11 @@ async function changeStock(db, stock, difference)
         {name:stock},
         {$inc: {price: difference}}
     )
+}
+module.exports = function (db) 
+{
+    var module = {};
+    module.handleChangeStockPrice = handleChangeStockPrice(db);
+
+    return module;
 }

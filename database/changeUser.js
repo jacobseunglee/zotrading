@@ -1,4 +1,4 @@
-function changeUser(db)
+function handleChangeUser(db)
 {
     return function(req, res)
     {
@@ -7,19 +7,24 @@ function changeUser(db)
         shares = req.query.shares
         stock = req.query.stock
         const users = db.collection("Users")
-        var id = addUser(users,id).then((id)=>
-        {
-            console.log(id)
-            res.send({id: id})
-        })
+        updateUser(users, username, cost, shares, stock).then(x => res.send(x))
     }
     
 }
-async function updateUser(db, username, cost, shares, stock)
+async function updateUser(users, username, cost, shares, stock)
 {
-    const collection = await db.collection("Users").updateOne(
+    var update = { $inc :{}}
+    update.$inc[stock] = shares
+    const collection = await users.updateOne(
         {id:username},
         {$inc: {cash: cost}},
-        {$inc: {stock: shares}}
+        {update}
     )
+}
+module.exports = function (db) 
+{
+    var module = {};
+    module.handleChangeUser = handleChangeUser(db);
+
+    return module;
 }
