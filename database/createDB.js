@@ -15,14 +15,15 @@ stocks = [{
 ]
 async function main() {
   const database = client.db("Market");
-  const prompts = database.collection("Stocks");
+  const stocks = database.collection("Stocks");
+  const prompts = database.collection("Users");
   try{
     await client.connect();
 
     for (let i = 0; i < stocks.length; i++)
     {
         stocks[i]._id = i
-        docID = await prompts.insertOne(stocks[i]);
+        docID = await stocks.insertOne(stocks[i]);
     }
     
   }
