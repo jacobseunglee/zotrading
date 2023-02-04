@@ -1,10 +1,10 @@
-
+import { Container, Navbar } from "react-bootstrap"
 
 function Header() {
     return (
-        <div>
-            <h1>Zotrading</h1>
-        </div>
+        <Navbar bg="dark" variant="dark" className="justify-content-center">
+            <Navbar.Brand>Zotrading</Navbar.Brand>
+      </Navbar>
     )
 }
 
