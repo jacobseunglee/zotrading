@@ -1,3 +1,5 @@
+import { Button} from "react-bootstrap"
+
 
 function buyStock(){
     console.log("stock bought")
@@ -8,12 +10,11 @@ function sellStock(){
 }
 
 function BuySellButton(){
-    console.log("buy sell")
     return (
-        <div>
-            <button onClick={buyStock}>Buy</button>
-            <button onClick={sellStock}>Sell</button>
-        </div>
+        <>
+            <Button onClick={buyStock} size="lg">Buy</Button>{' '}
+            <Button onClick={sellStock} size="lg">Sell</Button>
+        </>
     )
 }
 
