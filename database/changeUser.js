@@ -1,4 +1,4 @@
-function changeUser(db)
+function handleChangeUser(db)
 {
     return function(req, res)
     {
@@ -7,7 +7,7 @@ function changeUser(db)
         shares = req.query.shares
         stock = req.query.stock
         const users = db.collection("Users")
-        var id = updateUser(users, username, cost, shares, stock)
+        updateUser(users, username, cost, shares, stock).then(x => res.send(x))
     }
     
 }
@@ -20,4 +20,11 @@ async function updateUser(users, username, cost, shares, stock)
         {$inc: {cash: cost}},
         {update}
     )
+}
+module.exports = function (db) 
+{
+    var module = {};
+    module.handleChangeUser = handleChangeUser(db);
+
+    return module;
 }
