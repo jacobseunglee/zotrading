@@ -25,7 +25,6 @@ async function updateUser(users, username, cost, shares, stock)
     {$inc: query}
     )
     const collection2 = await users.findOne({id:username})
-    console.log(collection2)
     return collection2
 }
 

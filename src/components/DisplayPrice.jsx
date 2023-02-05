@@ -8,7 +8,6 @@ function DisplayPrice(props){
     return (
         <div>
             <div>${price}</div>
-            <div>shares remaining</div>
         </div>
     )
 }

@@ -3,16 +3,24 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-function buyStock(){
-    console.log("stock bought")
-}
-
-function sellStock(){
-    console.log("stock sold")
-}
 
 function BuySellButton(props){
-    const {data, setData} = props;
+    const {user, setUser, data} = props;
+
+    function buyStock(){
+        fetch(`http://localhost:3500/changeUser?username=${user.id}&cost=-${data[data.length-1].value}&shares=1&stock=Thornton Automobile`)
+                .then((response) => response.json())
+                .then((data) => {
+                setUser(data);})
+    }
+    
+    function sellStock(){
+        fetch(`http://localhost:3500/changeUser?username=${user.id}&cost=${data[data.length-1].value}&shares=1&stock=Thornton Automobile`)
+                .then((response) => response.json())
+                .then((data) => {
+                setUser(data);})
+    }
+    
     return (
         <Container>
             <Row>

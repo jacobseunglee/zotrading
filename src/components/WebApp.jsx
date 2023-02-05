@@ -5,6 +5,7 @@ import DisplayGraph from "./displayGraph";
 import DisplayPrice from "./DisplayPrice";
 import LoginButton from "./LoginButton";
 import DisplayCash from "./DisplayCash";
+import DisplayCurrentShares from "./DisplayCurrentShares";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -51,11 +52,14 @@ function WebApp() {
         <div className="display-price">
           <DisplayPrice data={data}/>
         </div>
+        <div className="shares-remaining">
+          <DisplayCurrentShares user={user}/>
+        </div>
         <div className="display-cash">
           <DisplayCash user={user}/>
         </div>
         <div className="buy-sell-container">
-            <BuySellButton data={data} setData={setData}/>
+            <BuySellButton user={user} setUser={setUser} data={data}/>
         </div>
       </Row>
     </Container>
