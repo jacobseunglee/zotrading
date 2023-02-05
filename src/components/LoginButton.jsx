@@ -1,7 +1,9 @@
 import { Form, InputGroup } from "react-bootstrap"
 
 
-function LoginButton(){
+function LoginButton(props){
+
+    const {user, setUser} = props
 
     function onLoginEnter(event){
         if(event.key === "Enter"){
@@ -9,7 +11,7 @@ function LoginButton(){
             fetch(`http://localhost:3500/getUser?username=${username}`)
             .then((response) => response.json())
             .then((data) => {
-        console.log(data.cash);
+            setUser(data);
     })
         }
     }

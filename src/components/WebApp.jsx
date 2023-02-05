@@ -29,7 +29,7 @@ function WebApp() {
         { index: 15, value: 10 },
         { index: 16, value: 50 },
       ])
-    const [user, setUser] = useState('');
+    const [user, setUser] = useState({cash: 0});
     return (
         <div className="web-app-container">
             <div className="header">
@@ -38,7 +38,7 @@ function WebApp() {
         <Container fluid>
           <Row>
             <div className="login-button">
-              <LoginButton/>
+              <LoginButton user={user} setUser={setUser}/>
             </div>
             <Col>
               <div className="graph-container">
@@ -52,7 +52,7 @@ function WebApp() {
           <DisplayPrice data={data}/>
         </div>
         <div className="display-cash">
-          <DisplayCash users={user}/>
+          <DisplayCash user={user}/>
         </div>
         <div className="buy-sell-container">
             <BuySellButton data={data} setData={setData}/>
