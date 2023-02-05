@@ -15,7 +15,7 @@ function BuySellButton(props){
     }
     
     function sellStock(){
-        fetch(`http://localhost:3500/changeUser?username=${user.id}&cost=${data[data.length-1].value}&shares=1&stock=Thornton Automobile`)
+        fetch(`http://localhost:3500/changeUser?username=${user.id}&cost=${data[data.length-1].value}&shares=-1&stock=Thornton Automobile`)
                 .then((response) => response.json())
                 .then((data) => {
                 setUser(data);})

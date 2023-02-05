@@ -6,9 +6,9 @@ function DisplayCurrentShares(props){
 
     return (
         <div>
-            Wongma Pharm shares: <br></br>
-            Thornton Automobile shares: <br></br>
-            Gilman Group Shares:
+            Wongma Pharm shares: {user["Wongma Pharm"]} <br></br>
+            Thornton Automobile shares: {user["Thornton Automobile"]}<br></br>
+            Gilman Group Shares: {user["Gilman Group"]}
         </div>
     )
 }
