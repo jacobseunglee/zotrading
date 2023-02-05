@@ -19,9 +19,9 @@ class DisplayGraph extends Component {
 
     const margins = {
       top: 20,
-      right: 0,
-      bottom: 8,
-      left: 30,
+      right: 20,
+      bottom: 20,
+      left: 25,
     };
 
     const width = parentWidth - margins.left - margins.right;
@@ -31,7 +31,7 @@ class DisplayGraph extends Component {
     const t = transition().duration(1000);
 
     const xScale = scaleBand()
-      .domain(data)
+      .domain(data.map(d => d.index))
       .rangeRound([0, width]).padding(0.1);
 
     const yScale = scaleLinear()
@@ -40,7 +40,7 @@ class DisplayGraph extends Component {
       .nice();
 
     const lineGenerator = line()
-      .x(d => xScale(d))
+      .x(d => xScale(d.index))
       .y(d => yScale(d.value))
       //.curve(curveMonotoneX);
 
