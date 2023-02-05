@@ -5,8 +5,7 @@ function LoginButton(){
 
     function onLoginEnter(event){
         if(event.key === "Enter"){
-            let username = event.currentTarget.value
-            console.log(event.currentTarget.value)
+            let username = event.target.value
         }
     }
 
