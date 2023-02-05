@@ -17,13 +17,19 @@ function WebApp() {
         { index: 3, value: 20 },
         { index: 4, value: 80 },
         { index: 5, value: 30 },
-        { index: 6, value: 0 },
-        { index: 7, value: 20 },
-        { index: 8, value: 300 },
-        { index: 9, value: 55 },
-        { index: 10, value: 60 },
-        { index: 11, value: 80 },
+        { index: 6, value: 30 },
+        { index: 7, value: 10 },
+        { index: 8, value: 50 },
+        { index: 9, value: 20 },
+        { index: 10, value: 80 },
+        { index: 11, value: 30 },
+        { index: 12, value: 90},
+        { index: 13, value: 30 },
+        { index: 14, value: 30 },
+        { index: 15, value: 10 },
+        { index: 16, value: 50 },
       ])
+    const [user, setUser] = useState('');
     return (
         <div className="web-app-container">
             <div className="header">
@@ -46,7 +52,7 @@ function WebApp() {
           <DisplayPrice data={data}/>
         </div>
         <div className="display-cash">
-          <DisplayCash data={data}/>
+          <DisplayCash users={user}/>
         </div>
         <div className="buy-sell-container">
             <BuySellButton data={data} setData={setData}/>

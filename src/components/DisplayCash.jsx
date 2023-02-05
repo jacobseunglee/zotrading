@@ -1,7 +1,8 @@
 
 
 function DisplayCash(props){
-    let {data} = props
+    let {user} = props
+
     return (
         <div>Cash remaining: </div>
     )

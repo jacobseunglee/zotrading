@@ -6,10 +6,10 @@ function LoginButton(){
     function onLoginEnter(event){
         if(event.key === "Enter"){
             let username = event.target.value
-            fetch(`https://localhost:3500/getUser?username=${username}`)
+            fetch(`http://localhost:3500/getUser?username=${username}`)
             .then((response) => response.json())
             .then((data) => {
-        console.log(data);
+        console.log(data.cash);
     })
         }
     }
