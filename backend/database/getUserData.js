@@ -1,11 +1,12 @@
 function handleGetUserData(db)
 {
-    return function(req, res)
+    return async function(req, res)
     {
         username = req.query.username
         const users = db.collection("Users")
-        checkUser(users, username).then(x=>
-            findUser(users, username).then(y=>res.send(y)))
+        await checkUser(users, username)
+        const x = await findUser(users, username)
+        res.send(x)
     }
     
 }
@@ -19,8 +20,8 @@ async function addUser(users,username)
 {
     try
     {
-        user = await users.insertOne({"id":username,"cash":500,"Wongma Pharm":0, "Thornton Automobile":0, "Gilman Group":0})
-        return user
+        users.insertOne({"id":username,"cash":500,"Wongma Pharm":0, "Thornton Automobile":0, "Gilman Group":0})
+        
     }
     catch(e)
     {
@@ -29,16 +30,14 @@ async function addUser(users,username)
 }
 async function checkUser(users, username)
 {
-    const collection2 = await users.findOne({id:username}).then(x=>
-        {
+    const x = await users.findOne({id:username})
+        
             console.log(x)
             if (x==null)
-            {
+            {   
                 console.log(x)
-                user = addUser(users, username).then(user=>
-                    console.log(user))
+                await addUser(users, username)
             }
-        })
 }
 
 module.exports = function (db) 

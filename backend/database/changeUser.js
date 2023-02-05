@@ -1,13 +1,14 @@
 function handleChangeUser(db)
 {
-    return function(req, res)
+    return async function(req, res)
     {
         username = req.query.username
         cost = parseInt(req.query.cost)
         shares = parseInt(req.query.shares)
         stock = req.query.stock
         const users = db.collection("Users")
-        updateUser(users, username, cost, shares, stock).then(x => res.send(x))
+        const x = await updateUser(users, username, cost, shares, stock)
+        res.send(x)
     }
     
 }

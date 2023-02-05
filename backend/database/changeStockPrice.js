@@ -1,11 +1,12 @@
 function handleChangeStockPrice(db)
 {
-    return function(req, res)
+    return async function(req, res)
     {
         stock = req.query.stock
         price = parseInt(req.query.price)
         const Stocks = db.collection("Stocks")
-        changeStock(Stocks, stock, price).then(x => res.send(x))
+        const x = await changeStock(Stocks, stock, price)
+        res.send(x)
     }
     
 }
