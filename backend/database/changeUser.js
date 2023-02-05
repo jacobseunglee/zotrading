@@ -15,7 +15,6 @@ async function updateUser(users, username, cost, shares, stock)
 {
     var query = {};
     query[stock] = shares;
-    console.log(query)
     const collection = await users.updateOne(
     {id:username},
     {$inc: {cash: cost}}
@@ -24,6 +23,9 @@ async function updateUser(users, username, cost, shares, stock)
     {id:username},
     {$inc: query}
     )
+    const collection2 = await users.findOne({id:username})
+    console.log(collection2)
+    return collection2
 }
 module.exports = function (db) 
 {
