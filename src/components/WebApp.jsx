@@ -2,6 +2,7 @@ import { useState } from "react";
 import BuySellButton from "./BuySellButton";
 import Header from "./Header"
 import DisplayGraph from "./displayGraph";
+import DisplayPrice from "./DisplayPrice";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -36,6 +37,9 @@ function WebApp() {
         <Col></Col>
         <Col></Col>
         <Col></Col>
+        <div className="display-price">
+          <DisplayPrice data={data}/>
+        </div>
         <div className="buy-sell-container">
             <BuySellButton data={data} setData={setData}/>
         </div>
