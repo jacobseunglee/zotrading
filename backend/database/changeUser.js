@@ -27,6 +27,8 @@ async function updateUser(users, username, cost, shares, stock)
     console.log(collection2)
     return collection2
 }
+
+
 module.exports = function (db) 
 {
     var module = {};

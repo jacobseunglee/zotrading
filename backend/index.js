@@ -14,7 +14,7 @@ async function main() {
     client = new MongoClient(uri);
     const database = client.db("Market");
     const changeUser = require("./database/changeUser")(database);
-    const createUser = require("./database/createUser")(database);
+    const getUserData = require("./database/getUserData")(database);
     const changeStockPrice = require("./database/changeStockPrice")(database);
     try{  
     await client.connect();
@@ -28,7 +28,7 @@ async function main() {
 
     app.use(cors())
     app.get('/changeUser', changeUser.handleChangeUser)
-    app.get('/createUser', createUser.handleCreateUser)
+    app.get('/getUser', getUserData.handleGetUserData)
     app.get('/changeStockPrice', changeStockPrice.handleChangeStockPrice)
     app.use('/public', express.static('public'))
 
