@@ -3,6 +3,7 @@ import BuySellButton from "./BuySellButton";
 import Header from "./Header"
 import DisplayGraph from "./displayGraph";
 import DisplayPrice from "./DisplayPrice";
+import LoginButton from "./LoginButton";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -28,13 +29,16 @@ function WebApp() {
                 <Header />
             </div>
         <Container fluid>
-      <Row>
-        <Col>
-        <div className="graph-container">
-            <DisplayGraph data ={data} />
-        </div>
-        </Col>
-        <Col></Col>
+          <Row>
+            <div className="login-button">
+              <LoginButton/>
+            </div>
+            <Col>
+              <div className="graph-container">
+                <DisplayGraph data ={data} />
+              </div>
+            </Col>
+            <Col></Col>
         <Col></Col>
         <Col></Col>
         <div className="display-price">

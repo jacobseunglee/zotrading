@@ -48,7 +48,7 @@ class Line extends React.Component {
           lineGenerator, xScale, yScale, data,
         } = this.props;
 
-    const t = transition().duration(1000);
+    const t = transition().duration(0);
 
     const line = select('#line');
     const dot = selectAll('.circle');
