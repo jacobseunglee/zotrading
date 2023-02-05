@@ -4,6 +4,7 @@ import Header from "./Header"
 import DisplayGraph from "./displayGraph";
 import DisplayPrice from "./DisplayPrice";
 import LoginButton from "./LoginButton";
+import DisplayCash from "./DisplayCash";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -43,6 +44,9 @@ function WebApp() {
         <Col></Col>
         <div className="display-price">
           <DisplayPrice data={data}/>
+        </div>
+        <div className="display-cash">
+          <DisplayCash data={data}/>
         </div>
         <div className="buy-sell-container">
             <BuySellButton data={data} setData={setData}/>
