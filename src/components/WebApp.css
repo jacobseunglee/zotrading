@@ -24,7 +24,6 @@
     
     grid-row: 2 / 5;
     grid-column: 2 / 5;
-
-    display: grid;
+    display: inline-block;
     place-items: center;
 }

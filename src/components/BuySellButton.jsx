@@ -2,7 +2,7 @@ import { Button} from "react-bootstrap"
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-
+import './BuySellButton.css'
 
 function BuySellButton(props){
     const {user, setUser, data} = props;
@@ -22,20 +22,11 @@ function BuySellButton(props){
     }
     
     return (
-        <Container>
-            <Row>
-            <Col/>
-            <Col/>
-            <Col/>
-            <Col/>
-            <Col>
-            <Button onClick={buyStock} size="lg">Buy</Button>
-            <Button onClick={sellStock} size="lg">Sell</Button> </Col>
-            </Row>
-            <Row></Row>
-     
-  
-        </Container>    
+    <div>
+        <button className = "but" onClick={buyStock} size="lg">Buy</button>
+        <button className = "but" onClick={sellStock} size="lg">Sell</button>
+    </div>
+         
     )
 }
 
